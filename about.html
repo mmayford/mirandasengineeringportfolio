@@ -1,0 +1,130 @@
+<html>
+<head>
+  <title>Miranda's games</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e7f4ff;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --border-color: #e2e8f0;
+            --background: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.2s ease;
+        }
+
+        body {
+            background-color: var(--background);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .content-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            background-color: var(--accent-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px 30px;
+            list-style-type: none;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-primary);
+        }
+
+        li:before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .itch-link {
+            position: absolute;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .itch-link:hover {
+            transform: scale(1.05);
+        }
+        
+        .itch-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .itch-text {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+    </style>
+ </head>
+<body>
+    <p> Hi, my name is miranda and this is a website I made in html. You can checkout the source code in my GitHub. I am an electrical engineer who also makes games in her free time. Please explore this website!</p>
+</body>
+</html>
