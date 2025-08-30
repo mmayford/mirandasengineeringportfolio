@@ -1,0 +1,434 @@
+<html>
+<head>
+  <title>Miranda's games</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e7f4ff;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --border-color: #e2e8f0;
+            --background: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.2s ease;
+        }
+
+        body {
+            background-color: var(--background);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .content-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            background-color: var(--accent-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px 30px;
+            list-style-type: none;
+            border-radius: 0 8px 8px 0;
+            margin: 25px 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-primary);
+        }
+
+        li:before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Game display layout */
+        .games-section {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 25px;
+            margin: 30px 0;
+            align-items: flex-start;
+        }
+
+        .game-selector {
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .game-thumbnail {
+            cursor: pointer;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .game-thumbnail:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .game-thumbnail.active {
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .game-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .game-display {
+            flex: 1;
+        }
+
+        .game-container {
+            width: 100%;
+            height: 560px;
+            margin: 0;
+            text-align: center;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            border-radius: 6px;
+        }
+
+        .game-scaler {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .game-scaler iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-description-container {
+            margin-top: 20px;
+        }
+
+        .game-description-toggle {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 1em;
+            font-weight: 500;
+            margin-bottom: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            text-align: left;
+        }
+
+        .game-description-toggle:hover {
+            background-color: var(--primary-color);
+        }
+
+        .game-description-toggle::after {
+            content: "▼";
+            font-size: 0.8em;
+            transition: var(--transition);
+        }
+
+        .game-description-toggle.active::after {
+            transform: rotate(180deg);
+        }
+
+        .game-description-content {
+            display: none;
+            background-color: var(--accent-color);
+            padding: 20px;
+            border-radius: 0 0 6px 6px;
+            border: 1px solid var(--border-color);
+            border-top: none;
+            margin-top: 0;
+        }
+
+        .game-description-content.active {
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .games-section {
+                flex-direction: column;
+            }
+            
+            .game-selector {
+                width: 100%;
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .game-thumbnail {
+                min-width: 150px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .content-container {
+                padding: 20px;
+            }
+            
+            .game-container {
+                height: 400px;
+            }
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .itch-link {
+            position: absolute;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .itch-link:hover {
+            transform: scale(1.05);
+        }
+        
+        .itch-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .itch-text {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+    </style>
+ </head>
+<body>
+  
+  <div class="content">
+    <div class="title-container">
+      <h1>MIRANDA MAKES GAMES</h1>
+      <a href="https://sleem-art.itch.io/" class="itch-link" target="_blank">
+        <img src="../Images/itch-icon.png" class="itch-icon" alt="itch.io">
+        <span class="itch-text">itch.io</span>
+      </a>
+    </div>
+    
+    <p>Check out the games we've made below. I do all the coding and my sister does the art. All the games so far have been for game jams, but we are working on another project so stay tuned. Scroll down for more info on each game and feel free to leave a comment. I'd love to hear constructive feedback :) </p>
+    
+    <div class="games-section">
+      <div class="game-selector">
+        <div class="game-thumbnail active" onclick="switchGame(0)">
+          <img src="../Images/warren-circle.png" alt="Elizabeth Warren Belly Dancing">
+          <p>Elizabeth Warren Belly Dancing</p>
+        </div>
+        <div class="game-thumbnail" onclick="switchGame(1)">
+          <img src="../Images/lostlloydcoverimage.png" alt="Lost Lloyd">
+          <p>Lost Lloyd</p>
+        </div>
+      </div>
+      
+      <div class="game-display">
+        <div class="game-container">
+          <div class="game-scaler">
+            <iframe 
+              id="gameFrame"
+              src="https://fanciful-rugelach-f51003.netlify.app/">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Moved descriptions outside games-section -->
+    <div class="game-description-container">
+      <!-- Only one description will be visible at a time -->
+      <div id="game1-description" class="game-description active">
+        <button class="game-description-toggle active" onclick="toggleDescription(0)">Elizabeth Warren Belly Dancing Info - Click to expand/collapse</button>
+        <div id="game1-description-content" class="game-description-content">
+          <h2>GMTK Game Jam 2025</h2>
+          <h3>Theme: Loop</h3>
+          
+          <p>This game was made in 4 days for the GMTK game jam with help from my sister. Special thanks to the Elizabeth Warren Caricature by Veg3D! Here is our ranking out of 9416 other submissions:</p>
+          
+          <ul>
+            <li>Creativity #923 4.0336</li>
+            <li>Enjoyment #1082 3.679</li>
+            <li>Audio #2038 3.214</li>
+            <li>Narrative #2478 2.679</li>
+            <li>Artwork #3519 3.143</li>
+          </ul>
+          
+          <p>Play this game if you ever wished you were belly dancing as Elizabeth Warren! Move your hips in various loop patterns to earn coins or just dance for free in creative mode. </p>
+          
+          <p>If we had more time we would add different loop types (like an infinity symbol, square, etc), different body parts to control, different characters and environments to choose from, more songs, and maybe throw in some unexpected challenges.</p>
+        </div>
+      </div>
+      
+      <div id="game2-description" class="game-description">
+        <button class="game-description-toggle" onclick="toggleDescription(1)">Lost Lloyd Info - Click to expand/collapse</button>
+        <div id="game2-description-content" class="game-description-content">
+          <h2>IGDA San Diego Game Jam 2024</h2>
+          <h3>Theme: Fool Me Once...</h3>
+          
+          <p>Here's a game I made with my sister (with guest voice acting from my dad) for a game jam. The theme was "fool me once" and our original scoring is below:</p>
+          
+          <ul>
+            <li>Best Audio #1 4.25</li>
+            <li>Best Use Of Theme #4 3.0</li>
+            <li>Overall #4 3.05</li>
+            <li>Best Narrative #5 2.25</li>
+            <li>Best Design #6 3.0</li>
+            <li>Best Art #7 2.75</li>
+          </ul>
+          
+          <p>
+            This game was originally made in 2 days, but I cleaned up this version a bit more for a total of 3 days. Hope you enjoy :)
+            WARNING game is currently under construction do not play
+          </p>
+        </div>
+      </div>
+    </div>
+  <script>
+    const games = [
+      {
+        url: "https://fanciful-rugelach-f51003.netlify.app/",
+        descriptionId: "game1-description",
+        descriptionContentId: "game1-description-content",
+        toggleId: 0,
+        commentsId: "game1-comments"
+      },
+      {
+        url: "https://zingy-longma-39f16d.netlify.app/",
+        descriptionId: "game2-description",
+        descriptionContentId: "game2-description-content",
+        toggleId: 1,
+        commentsId: "game2-comments"
+      }
+    ];
+    
+    function switchGame(index) {
+      // Update iframe source
+      document.getElementById("gameFrame").src = games[index].url;
+      
+      // Update active thumbnail
+      const thumbnails = document.querySelectorAll('.game-thumbnail');
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+      
+      // Update active description
+      const descriptions = document.querySelectorAll('.game-description');
+      descriptions.forEach((desc, i) => {
+        desc.classList.toggle('active', i === index);
+      });
+      
+      // Update active comments
+      const comments = document.querySelectorAll('.comments-box');
+      comments.forEach((box, i) => {
+        box.classList.toggle('active', i === index);
+      });
+      
+      // Reset the toggle state for the newly selected game
+      const toggleButton = document.querySelectorAll('.game-description-toggle')[index];
+      const content = document.getElementById(games[index].descriptionContentId);
+      
+      // Only close if it's not already closed
+      if (toggleButton.classList.contains('active')) {
+        toggleButton.classList.remove('active');
+        content.classList.remove('active');
+      }
+    }
+    
+    function toggleDescription(index) {
+      const toggleButton = document.querySelectorAll('.game-description-toggle')[index];
+      const content = document.getElementById(`game${index+1}-description-content`);
+      
+      toggleButton.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+    
+    // Initialize the first description as expanded
+    document.addEventListener('DOMContentLoaded', function() {
+      // document.querySelector('.game-description-toggle').classList.add('active');
+      // document.getElementById('game1-description-content').classList.add('active');
+    });
+  </script>
+</body>
+</html>
