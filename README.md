@@ -1,1 +1,1 @@
-# Miranda's Engineering Portfolio Website
+# Miranda's Portfolio Website
