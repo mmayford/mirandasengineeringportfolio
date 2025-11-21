@@ -1,5 +1,397 @@
-<html>
-  <body>
-    <p> tbd </p>p
-  </body>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Google Docs & Slides Showcase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4285f4;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --gray: #5f6368;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .item-header {
+            padding: 1.2rem;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-header i {
+            font-size: 1.2rem;
+        }
+
+        .item-content {
+            padding: 1.5rem;
+        }
+
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background: #f1f3f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .placeholder {
+            text-align: center;
+            color: var(--gray);
+        }
+
+        .placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .item-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .item-description {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #3367d6;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>John Doe's Portfolio</h1>
+            <p class="tagline">Showcasing my work with Google Docs & Slides</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2 class="section-title">Welcome to My Portfolio</h2>
+            <p>This portfolio showcases my professional documents and presentations created with Google Workspace. Each item is embedded directly from Google Drive for easy viewing.</p>
+        </section>
+
+        <section class="portfolio-showcase">
+            <h2 class="section-title">My Work</h2>
+            
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item">
+                    <div class="item-header">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Project Proposal</h3>
+                    </div>
+                    <div class="item-content">
+                        <div class="embed-container">
+                            <!-- Replace with your actual Google Doc embed code -->
+                            <div class="placeholder">
+                                <i class="fas fa-file-word"></i>
+                                <p>Google Document Embed</p>
+                            </div>
+
+                            <iframe src="https://ucf8ad6272f2e9a6d115188f9d56.dl.dropboxusercontent.com/cd/0/inline2/C1hf21ctpXKRmmVQ2jgjUxy_eZAY0l4UTTYyOeGtr5shTEo5btVjUgqihXV3ccGGWmGL4Gd-1JURjOb_cFoRcu6qQD1jMj6RI-SGq7AUANn3No77zZiVa14YIMmqpnuXbw4k8in2g71WRMOeFj4mDARvzbbW2M0QMxWYmeiL3zFSWzD_LlwG6R2ZTdN2ZChIDPpBAvQOW4m-ekOnfAnDhrX8MRs1Wki3wvIs2Sr1BoKTeSQXfK4g8lEtt3Cq3Q8FQH-jt8_-CZ8anj9mABMaJF7POcjLOzJdDmybqKLW68FdxIjXCoiqvYA7BvkjYDGof2LdlAsJq84J2Kpb40cmgvcx8sZt5ayS0b40x08lsBOX_lJp9LSRwxQo9ZouBBMFvSg/file" width="100%" height="500px"></iframe>
+                          
+                        </div>
+                        <h4 class="item-title">Marketing Campaign Proposal</h4>
+                        <p class="item-description">A comprehensive proposal for a multi-channel marketing campaign targeting millennials with detailed budget and timeline.</p>
+                        <div class="btn-group">
+                            <a href="#" class="btn">View Full Document</a>
+                            <a href="#" class="btn btn-outline">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item">
+                    <div class="item-header">
+                        <i class="fas fa-presentation-screen"></i>
+                        <h3>Business Presentation</h3>
+                    </div>
+                    <div class="item-content">
+                        <div class="embed-container">
+                            <!-- Replace with your actual Google Slides embed code -->
+                            <div class="placeholder">
+                                <i class="fas fa-presentation-screen"></i>
+                                <p>Google Slides Embed</p>
+                            </div>
+                            <iframe src="https://uc2d7a5b4baaf1c374156b385551.dl.dropboxusercontent.com/cd/0/inline2/C1jvo6E6DamclACm5KiO3FXp2XppmYzEQN4QJsYPQFnjs4dkEIcUdMt4nL_IbZUrbebzy_CGKQeyJWeKNnOEQMvQC1VOHRW1pzXR-Pj9kMFLh1i3KAJeQyIFupv4xl8TjoiI6-QLmw-7hYrvEHQGW2_acrlpV95O97srE1NyWFWUg6joYtnWDHKIaEwu_fQmF7hfN-h97LJk9QBqT3eXhAlv4pkJUj3ItHJMw3o6DATVia180L41E-AthbDQ1cQ998Tfcbbpuft6a5OqMgIM1Gqe62ccPhwBu2Tn2pK_P6OElFusuDEs0ac0EiSN4Fs0N5FAMk07-Wx7GKenlN2YN1sq-Hm6A_StvRMeCiydnXYvnyqBFmjk-x5qtsYFeMfaryc/file" width="100%" height="500px"></iframe>
+                        </div>
+                        <h4 class="item-title">Q3 Business Strategy Review</h4>
+                        <p class="item-description">An executive presentation reviewing Q2 performance and outlining strategic initiatives for the upcoming quarter.</p>
+                        <div class="btn-group">
+                            <a href="#" class="btn">View Presentation</a>
+                            <a href="#" class="btn btn-outline">Open in Slides</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item">
+                    <div class="item-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Research Report</h3>
+                    </div>
+                    <div class="item-content">
+                        <div class="embed-container">
+                            <!-- Replace with your actual Google Doc embed code -->
+                            <div class="placeholder">
+                                <i class="fas fa-file-alt"></i>
+                                <p>Google Document Embed</p>
+                            </div>
+                        </div>
+                        <h4 class="item-title">Market Analysis: Tech Industry 2023</h4>
+                        <p class="item-description">In-depth analysis of emerging trends in the technology sector with projections for the next 3-5 years.</p>
+                        <div class="btn-group">
+                            <a href="#" class="btn">Read Report</a>
+                            <a href="#" class="btn btn-outline">Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item">
+                    <div class="item-header">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Project Roadmap</h3>
+                    </div>
+                    <div class="item-content">
+                        <div class="embed-container">
+                            <!-- Replace with your actual Google Slides embed code -->
+                            <div class="placeholder">
+                                <i class="fas fa-presentation-screen"></i>
+                                <p>Google Slides Embed</p>
+                            </div>
+                        </div>
+                        <h4 class="item-title">Product Launch Timeline</h4>
+                        <p class="item-description">Visual roadmap showing key milestones and deliverables for the upcoming product launch campaign.</p>
+                        <div class="btn-group">
+                            <a href="#" class="btn">View Slides</a>
+                            <a href="#" class="btn btn-outline">Share</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h3>Get In Touch</h3>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="copyright">© 2023 John Doe's Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple script to handle button interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewButtons = document.querySelectorAll('.btn:not(.btn-outline)');
+            
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const itemTitle = this.closest('.item-content').querySelector('.item-title').textContent;
+                    alert(`Opening: ${itemTitle}\n\nIn a real implementation, this would open the embedded document or presentation.`);
+                });
+            });
+            
+            const outlineButtons = document.querySelectorAll('.btn-outline');
+            
+            outlineButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const action = this.textContent.toLowerCase();
+                    const itemTitle = this.closest('.item-content').querySelector('.item-title').textContent;
+                    alert(`Action: ${action} for ${itemTitle}\n\nIn a real implementation, this would ${action} the document.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
