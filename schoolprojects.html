@@ -305,116 +305,61 @@
                         <p class="item-description">For this presentation, my partner and I picked a research paper to summarize and present to our fellow classmates.</p>
                      </div>
                 </div>
-            
-                    <!-- Portfolio Item 4 -->
+
+                <!-- Portfolio Item 4 -->
                 <div class="portfolio-item">
                     <div class="item-header">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-presentation-screen"></i>
                         <h3>Winter 2024</h3>
                     </div>
                     <div class="item-content">
                         <div class="embed-container">
+                            <div class="placeholder">
+                                <i class="fas fa-presentation-screen"></i>
                             </div>
                                 <iframe src="https://www.dropbox.com/scl/fi/osfqtad77e4q1bij3bgx3/Fourier-Optics-Project-Presentation.pdf?rlkey=c1nxmy9emxf71ewxhvhtcjo7f&st=p6i9vyde&raw=1" width="100%" height="500px"></iframe>
                             </div>
-                            <div class="placeholder">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                        </div>
                         <h4 class="item-title">Fourier Optics Project</h4>
                         <p class="item-description">In this project, my lab partner and I analyzed the effects of changes in the fourier domain to an optical image.</p>
-                        <div class="btn-group">
-                            <a href="#" class="btn">Read Report</a>
-                            <a href="#" class="btn btn-outline">Download</a>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Portfolio Item 5 -->
                 <div class="portfolio-item">
                     <div class="item-header">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-presentation-screen"></i>
                         <h3>Winter 2024</h3>
                     </div>
                     <div class="item-content">
                         <div class="embed-container">
+                            <div class="placeholder">
+                                <i class="fas fa-presentation-screen"></i>
                             </div>
                                 <iframe src="https://www.dropbox.com/scl/fi/vp0ds5tbbql8i9oxiau39/LT-Stabilization-Project-Presentation.pdf?rlkey=9629tfaavy1rq018m37j83uc9&st=hcpwr7lh&raw=1" width="100%" height="500px"></iframe>
                             </div>
-                            <div class="placeholder">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                        </div>
                         <h4 class="item-title">LT Stabilization</h4>
                         <p class="item-description">In this project, my lab partner and I used the laplace transform to stabilize a ball on a beam.</p>
-                        <div class="btn-group">
-                            <a href="#" class="btn">Read Report</a>
-                            <a href="#" class="btn btn-outline">Download</a>
-                        </div>
                     </div>
                 </div>
-    
-                <!-- Portfolio Item 6 -->
+
+                <!-- Portfolio Item 5 -->
                 <div class="portfolio-item">
                     <div class="item-header">
-                        <i class="fas fa-bullseye"></i>
+                        <i class="fas fa-presentation-screen"></i>
                         <h3>November 2023 - December 2023</h3>
                     </div>
                     <div class="item-content">
                         <div class="embed-container">
-                            </div>
-                                <iframe src="https://sites.google.com/view/ece-5-lab-4/home" width="100%" height="500px"></iframe>
-                            </div>
                             <div class="placeholder">
                                 <i class="fas fa-presentation-screen"></i>
                             </div>
-                        </div>
+                                <iframe src="https://sites.google.com/view/ece-5-lab-4/home" width="100%" height="500px"></iframe>
+                            </div>
                         <h4 class="item-title">Line Following Robot</h4>
                         <p class="item-description">In this project, I worked with a group of 4 to design and develop a robot in 2 weeks that could follow a black line.</p>
-                        <div class="btn-group">
-                            <a href="#" class="btn">View Slides</a>
-                            <a href="#" class="btn btn-outline">Share</a>
-                        </div>
-                    </div>
+                     </div>
                 </div>
         </section>
     </div>
-
-    <footer>
-        <h3>Get In Touch</h3>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p class="copyright">© 2023 John Doe's Portfolio. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Simple script to handle button interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            const viewButtons = document.querySelectorAll('.btn:not(.btn-outline)');
-            
-            viewButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const itemTitle = this.closest('.item-content').querySelector('.item-title').textContent;
-                    alert(`Opening: ${itemTitle}\n\nIn a real implementation, this would open the embedded document or presentation.`);
-                });
-            });
-            
-            const outlineButtons = document.querySelectorAll('.btn-outline');
-            
-            outlineButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const action = this.textContent.toLowerCase();
-                    const itemTitle = this.closest('.item-content').querySelector('.item-title').textContent;
-                    alert(`Action: ${action} for ${itemTitle}\n\nIn a real implementation, this would ${action} the document.`);
-                });
-            });
-        });
-    </script>
 </body>
 </html>
