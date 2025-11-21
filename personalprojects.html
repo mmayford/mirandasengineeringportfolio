@@ -333,17 +333,33 @@
       </a>
     </div>
     
-    <p>Check out the games we've made below. I do all the coding and my sister does the art. All the games so far have been for game jams, but we are working on a bigger personal project in our free time.</p>
-    
+    <p>Check out the games we've made below. I do all the coding and my sister does the art. All the games so far have been for game jams, but we are working on a bigger personal project in our free time. These projects are just for fun so the concepts might be a little goofy, but they are a great way for me to practice my coding skills and get creative.</p>
+
+    <h2>GMTK Game Jam 2025</h2>
+          <h3>Theme: Loop</h3>
+          
+          <p>This game was made in 4 days for the GMTK game jam with help from my sister. Special thanks to the Elizabeth Warren Caricature by Veg3D! Here is our ranking out of 9416 other submissions:</p>
+          
+          <ul>
+            <li>Creativity #923 4.0336</li>
+            <li>Enjoyment #1082 3.679</li>
+            <li>Audio #2038 3.214</li>
+            <li>Narrative #2478 2.679</li>
+            <li>Artwork #3519 3.143</li>
+          </ul>
+          
+          <p>If we had more time we would add different loop types (like an infinity symbol, square, etc), different body parts to control, different characters and environments to choose from, more songs, and maybe throw in some unexpected challenges.</p>
+          <h3>Technical Summary:</h3>
+          <p>The most challenging part of this project was determining how to keep score. I wanted to test how far the mouse was from the desired shape at any given point, make sure they were going in the right direction, and make sure they completed the shape. It was difficult figuring out how to determine the distance from the shape since I didn't know what part of the shape they were currently at. I decided to go with a distance formula from the mouse's current position to the closest point on a circle. I was hoping to find an equation that would work for different shapes as well, but didn't have the time. Since every shape should be a closed loop, I also check what percentage of a loop they completed. This way I could also check if they were moving backwards and subtract points accordingly.</p>
+          <p>Below is a link to the full project code on my Github.</p>
+        </div>
+      </div>
+  
     <div class="games-section">
       <div class="game-selector">
         <div class="game-thumbnail active" onclick="switchGame(0)">
           <img src="../Images/warren-circle.png" alt="Elizabeth Warren Belly Dancing">
           <p>Elizabeth Warren Belly Dancing</p>
-        </div>
-        <div class="game-thumbnail" onclick="switchGame(1)">
-          <img src="../Images/lostlloydcoverimage.png" alt="Lost Lloyd">
-          <p>Lost Lloyd</p>
         </div>
       </div>
       
@@ -359,55 +375,6 @@
       </div>
     </div>
     
-    <!-- Moved descriptions outside games-section -->
-    <div class="game-description-container">
-      <!-- Only one description will be visible at a time -->
-      <div id="game1-description" class="game-description active">
-        <button class="game-description-toggle active" onclick="toggleDescription(0)">Elizabeth Warren Belly Dancing Info - Click to expand/collapse</button>
-        <div id="game1-description-content" class="game-description-content">
-          <h2>GMTK Game Jam 2025</h2>
-          <h3>Theme: Loop</h3>
-          
-          <p>This game was made in 4 days for the GMTK game jam with help from my sister. Special thanks to the Elizabeth Warren Caricature by Veg3D! Here is our ranking out of 9416 other submissions:</p>
-          
-          <ul>
-            <li>Creativity #923 4.0336</li>
-            <li>Enjoyment #1082 3.679</li>
-            <li>Audio #2038 3.214</li>
-            <li>Narrative #2478 2.679</li>
-            <li>Artwork #3519 3.143</li>
-          </ul>
-          
-          <p>Play this game if you ever wished you were belly dancing as Elizabeth Warren! Move your hips in various loop patterns to earn coins or just dance for free in creative mode. </p>
-          
-          <p>If we had more time we would add different loop types (like an infinity symbol, square, etc), different body parts to control, different characters and environments to choose from, more songs, and maybe throw in some unexpected challenges.</p>
-        </div>
-      </div>
-      
-      <div id="game2-description" class="game-description">
-        <button class="game-description-toggle" onclick="toggleDescription(1)">Lost Lloyd Info - Click to expand/collapse</button>
-        <div id="game2-description-content" class="game-description-content">
-          <h2>IGDA San Diego Game Jam 2024</h2>
-          <h3>Theme: Fool Me Once...</h3>
-          
-          <p>Here's a game I made with my sister (with guest voice acting from my dad) for a game jam. The theme was "fool me once" and our original scoring is below:</p>
-          
-          <ul>
-            <li>Best Audio #1 4.25</li>
-            <li>Best Use Of Theme #4 3.0</li>
-            <li>Overall #4 3.05</li>
-            <li>Best Narrative #5 2.25</li>
-            <li>Best Design #6 3.0</li>
-            <li>Best Art #7 2.75</li>
-          </ul>
-          
-          <p>
-            This game was originally made in 2 days, but I cleaned up this version a bit more for a total of 3 days. Hope you enjoy :)
-            WARNING game is currently under construction do not play
-          </p>
-        </div>
-      </div>
-    </div>
   <script>
     const games = [
       {
@@ -417,13 +384,6 @@
         toggleId: 0,
         commentsId: "game1-comments"
       },
-      {
-        url: "https://zingy-longma-39f16d.netlify.app/",
-        descriptionId: "game2-description",
-        descriptionContentId: "game2-description-content",
-        toggleId: 1,
-        commentsId: "game2-comments"
-      }
     ];
     
     function switchGame(index) {
