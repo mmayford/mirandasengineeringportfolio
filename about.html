@@ -33,6 +33,7 @@
       padding: 30px;
       box-shadow: var(--shadow);
       border: 1px solid var(--border-color);
+      text-align: center; /* Center all text in the container */
     }
 
     h1 {
@@ -50,6 +51,7 @@
       line-height: 1.6;
       margin-bottom: 20px;
       color: var(--text-secondary);
+      text-align: center; /* Center all paragraphs */
     }
 
     ul {
@@ -59,6 +61,7 @@
       list-style-type: none;
       border-radius: 0 8px 8px 0;
       margin: 25px 0;
+      text-align: left; /* Keep list items left-aligned for readability */
     }
 
     li {
@@ -100,7 +103,7 @@
     
     .github-link {
       position: absolute;
-      right: 0;
+      right: 20px; /* Moved closer to center */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -160,6 +163,19 @@
       
       .bio-text {
         text-align: left;
+      }
+    }
+
+    /* Responsive adjustments for the GitHub link */
+    @media (max-width: 768px) {
+      .github-link {
+        position: relative;
+        right: auto;
+        margin-top: 15px;
+      }
+      
+      .title-container {
+        flex-direction: column;
       }
     }
   </style>
